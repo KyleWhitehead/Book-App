@@ -1,14 +1,24 @@
+import logo from '../../assets/logo.png';
+import './HomeNavbar.css';
+
 const HomeNavbar = () => {
   return (
-    <nav>
-      <h2>Summarist</h2>
+    <nav className="nav">
+      <div className="nav__wrapper">
 
-      <ul>
-        <li>Login</li>
-        <li>About</li>
-        <li>Contact</li>
-        <li>Help</li>
+      <figure className="nav__img--mask">
+        <img className="nav__img"
+        src={logo} 
+        alt="Logo" />
+      </figure>
+      <ul className="nav__list--wrapper">
+        <li className="nav__list nav__list--login">Login</li>
+
+        <li className="nav__list nav__list--mobile">About</li>
+        <li className="nav__list nav__list--mobile">Contact</li>
+        <li className="nav__list nav__list--mobile">Help</li>
       </ul>
+        </div>
     </nav>
   );
 };
