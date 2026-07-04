@@ -6,6 +6,7 @@ import Home from './Pages/Home/Home';
 import Library from './Pages/Library/Library';
 import Player from './Pages/Player/Player';
 import Settings from './Pages/Settings/Settings';
+import SideBar from './components/Sidebar/SideBar';
 
 
 function App() {
