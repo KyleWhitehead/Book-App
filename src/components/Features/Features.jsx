@@ -39,6 +39,31 @@ const Features = () => {
                 </div>
               </div>
             </div>
+            <div className="statistics__wrapper">
+              <div className="statistics__content--header">
+                <div className="statistics__heading">Enhance your knowledge</div>
+                <div className="statistics__heading">Expand your perspective</div>
+                <div className="statistics__heading">Improve your skills</div>
+                <div className="statistics__heading">Stay informed</div>
+                <div className="statistics__heading">Make better decisions</div>
+                <div className="statistics__heading">Boost your confidence</div>
+              </div>
+              <div className="statistics__content--details">
+                <div className="statistics__data">
+                  <div className="statistics__data--number">93%</div>
+                  <div className="statistics__data--title">of summarist members <b>significantly increase</b> reading frequency</div>
+                </div>
+              </div>
+              <div className="statistics__data">
+                <div className="statistics__data--number">96%</div>
+                <div className="statistics__data--title">of summarist members <b>establish better</b> habits</div>
+              </div>
+              <div className="statistics__data">
+                <div className="statistics__data--number">90%</div>
+                <div className="statistics__data--title">have made <b>significant positive</b> change to their lives</div>
+              </div>
+            </div>
+            <div className="statistics__wrapper"></div>
           </div>
         </div>
       </section>
