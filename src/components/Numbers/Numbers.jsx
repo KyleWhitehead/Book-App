@@ -10,7 +10,7 @@ import {
 
 const Numbers = () => {
   return (
-    <section>
+    <section className="numbers">
         <div className="container">
           <div className="row">
             <div className="section-title">Start growing with Summarist now</div>
