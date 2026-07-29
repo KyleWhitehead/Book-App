@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCrown,
   faStar,
+  faStarHalfAlt,
   faLeaf,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -27,7 +28,7 @@ const Numbers = () => {
                   <FontAwesomeIcon icon={faStar} />
                   <FontAwesomeIcon icon={faStar} />
                   <FontAwesomeIcon icon={faStar} />
-                  <FontAwesomeIcon icon={faStar} />
+                  <FontAwesomeIcon icon={faStarHalfAlt} />
                 </div>
                 <div className="numbers__title">4.5 Stars</div>
                 <div className="numbers__sub-title">Average ratings on iOS and Google Play</div>
