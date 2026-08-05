@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+}
+
+.sidebar__top
+ {
+    flex: 1 1;
+    margin-top: 40px;
+}
+
+.sidebar__link--wrapper {
+    display: flex;
+    align-items: center;
+    height: 56px;
+    color: #032b41;
+    margin-bottom: 8px;
+    cursor: pointer;
+}

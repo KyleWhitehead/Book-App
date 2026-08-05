@@ -26,6 +26,20 @@ const ForYou = () => {
           <div className="sidebar__logo">
             <img src={logo} alt="Logo"></img>
           </div>
+          <div className="sidebar__wrapper">
+            <div className="sidebar__top">
+              <a className="sidebar__link--wrapper" href="/for-you">
+                <div className="sidebar__icon--wrapper">
+                  
+                </div>
+                <div className="sidebar__link-text">For You</div>
+                </a>
+              <a className="sidebar__link--wrapper" href=""></a>
+              <div className="sidebar__link--wrapper"></div>
+              <div className="sidebar__link--wrapper"></div>
+            </div>
+            <div className="sidebar__bottom"></div>
+          </div>
         </div>
         <div className="row"></div>
       </div>
