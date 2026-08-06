@@ -83,7 +83,33 @@ const ForYou = () => {
             </div>
           </div>
         </div>
-        <div className="row"></div>
+        <div className="row">
+          <div className="container">
+            <div className="for-you__wrapper">
+              <div className="for-you__title">Selected just for you</div>
+              <audio></audio>
+              <a className="selected__book" href="https://us-central1-summaristt.cloudfunctions.net/getBooks?status=selected">
+              <div className="selected__book--sub-title">How Constant Innovation Creates Radically Successful Businesses</div>
+              <div className="selected__book--line"></div>
+              <div className="selected__book--content">
+                <figure className="book__image--wrapper">
+                  <img className="book__image" src="https://firebasestorage.googleapis.com/v0/b/summaristt.appspot.com/o/books%2Fimages%2Fthe-lean-startup.png?alt=media&token=087bb342-71d9-4c07-8b0d-4dd1f06a5aa2" alt="book" />
+                </figure>
+                <div className="selected__book--text">
+                  <div className="selected__book--title">The Lean Startup</div>
+                  <div className="selected__book--author">Eric Ries</div>
+                  <div className="selected__book--duration-wrapper">
+                    <div className="selected__book--icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </div>
+                    <div className="selected__book--duration">3 min 23 secs</div>
+                  </div>
+                </div>
+              </div>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

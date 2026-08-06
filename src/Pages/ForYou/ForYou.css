@@ -11,6 +11,29 @@
     margin-top: 40px;
 }
 
+.sidebar {
+    background-color: #f7faf9;
+    width: 200px;
+    min-width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 1000;
+    transition: all .3s;
+}
+
+.sidebar__logo
+ {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    padding-top: 16px;
+    max-width: 160px;
+    margin: 0 auto;
+}
+
 .sidebar__link--wrapper {
     display: flex;
     align-items: center;
@@ -69,4 +92,116 @@
     height: calc(100vh - 60px);
     padding-bottom: 20px;
     overflow-y: auto;
+}
+
+*/ 
+
+For You Page Styles 
+
+*/
+
+.row {
+    max-width: 1070px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.container {
+    padding: 40px 0;
+    width: 100%;
+}
+
+.for-you__title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #032b41;
+    margin-bottom: 16px;
+}
+
+.selected__book {
+    display: flex;
+    justify-content: space-between;
+    width: calc((100% / 3) * 2);
+    background-color: #fbefd6;
+    border-radius: 4px;
+    padding: 24px;
+    margin-bottom: 24px;
+    gap: 24px;
+}
+
+.selected__book--sub-title {
+    color: #032b41;
+    width: 40%;
+}
+
+.selected__book--line {
+    width: 1px;
+    background-color: #bac8ce;
+}
+
+.selected__book--content {
+    display: flex;
+    gap: 16px;
+    width: 60%;
+}
+
+.book__image--wrapper {
+    width: 172px;
+    height: 172px;
+}
+
+.book__image
+ {
+    width: 100%;
+    height: 100%;
+}
+
+.selected__book--text {
+    width: 100%;
+}
+
+.selected__book--title {
+    font-weight: 600;
+    color: #032b41;
+    margin-bottom: 8px;
+}
+
+.selected__book--author {
+    font-size: 14px;
+    color: #394547;
+    margin-bottom: 16px;
+}
+
+.selected__book--duration-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.selected__book--icon {
+    display: flex;
+    align-items: center;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+}
+
+.selected__book--icon svg {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    align-items: center;
+    padding: 4px 4px 4px 6px;
+}
+
+.selected__book--duration
+ {
+    font-size: 14px;
+    font-weight: 500;
+    color: #032b41;
 }
