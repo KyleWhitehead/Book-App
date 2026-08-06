@@ -1,6 +1,8 @@
 import React from "react";
 import "./ForYou.css";
 import logo from "../../assets/logo.png";
+import { faGear } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ForYou = () => {
   return (
@@ -17,7 +19,7 @@ const ForYou = () => {
                   </div>
                 </div>
               </div>
-              <div className="sidebar__toogle--btn"></div>
+              <div className="sidebar__toggle--btn"></div>
             </div>
           </div>
         </div>
@@ -36,22 +38,22 @@ const ForYou = () => {
               </a>
               <a className="sidebar__link--wrapper" href="/library">
                 <div className="sidebar__link--line"></div>
-                <div className="sidebar__lik--wrapper">
-                  <svg bookmark xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-bookmark"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                <div className="sidebar__icon--wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-bookmark"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div className="sidebar__link--text">My Library</div>
               </a>
               <div className="sidebar__link--wrapper sidebar__link--not-allowed">
                 <div className="sidebar__link--line"></div>
                 <div className="sidebar__icon--wrapper">
-                  <svg pen xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4L18.5 2.5z"></path></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4L18.5 2.5z"></path></svg>
                 </div>
                 <div className="sidebar__link--text">Highlights</div>
               </div>
               <div className="sidebar__link--wrapper sidebar__link--not-allowed">
                 <div className="sidebar__link--line"></div>
                 <div className="sidebar__icon--wrapper">
-                  <svg search xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                 </div>
                 <div className="sidebar__link--text">Search</div>
               </div>
@@ -60,21 +62,21 @@ const ForYou = () => {
               <a className="sidebar__link--wrapper" href="/settings">
               <div className="sidebar__link--line"></div>
               <div className="sidebar__icon--wrapper">
-              <svg settings xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9.6 19a1.65 1.65 0 0 0-1-1.51V17a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 .6-15a1.65 1.65 0 0 0-1-1.51V15a2 2 0 0-4z"></path></svg>
+                <FontAwesomeIcon icon={faGear} />
               </div>
               <div className="sidebar__link--text">Settings</div>
               </a>
               <div className="sidebar__link--wrapper sidebar__link--not-allowed">
                 <div className="sidebar__link--line"></div>
                 <div className="sidebar__link--wrapper">
-                  <svg help xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-help-circle"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 1 1 5.83 1c-.03.31-.09.63-.18.94a3.5 3.5 0 0 1-2.4 2.4c-.31.09-.63.15-.94.18"></path><line x1="12" y1="17" x2="12" y2="17"></line></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-help-circle"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 1 1 5.83 1c-.03.31-.09.63-.18.94a3.5 3.5 0 0 1-2.4 2.4c-.31.09-.63.15-.94.18"></path><line x1="12" y1="17" x2="12" y2="17"></line></svg>
                 </div>
                 <div className="sidebar__link--text">Help & Support</div>
               </div>
               <div className="sidebar__link--wrapper">
                 <div className="sidebar__link--line"></div>
                 <div className="sidebar__icon--wrapper">
-                  <svg logout xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
                 </div>
                 <div className="sidebar__link--text">Logout</div>
               </div>
