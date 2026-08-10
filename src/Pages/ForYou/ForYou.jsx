@@ -107,6 +107,12 @@ const ForYou = () => {
                 </div>
               </div>
               </a>
+              <div>
+                <div className="for-you__title">Recommended for You</div>
+                <div className="for-you__sub--title">We think you'll like these</div>
+                <div className="for-you__recommended--books"></div>
+              </div>
+              <div></div>
             </div>
           </div>
         </div>

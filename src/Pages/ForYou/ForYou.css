@@ -5,6 +5,22 @@
     font-family: Roboto, sans-serif;
 }
 
+.wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-left: 200px;
+    width: calc(100% - 200px);
+    transition: all .3s;
+}
+
+.search__background {
+    background-color: #fff;
+    border-bottom: 1px solid #e1e7ea;
+    height: 80px;
+    z-index: 1;
+}
+
 .sidebar__top
  {
     flex: 1 1;
@@ -68,6 +84,17 @@
     height: 100%;
 }
 
+.search__input--wrapper {
+    position: relative;
+    gap: 8px;
+}
+
+.search, .search__input--wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
 .search__input {
     height: 40px;
     width: 100%;
@@ -92,6 +119,11 @@
     height: calc(100vh - 60px);
     padding-bottom: 20px;
     overflow-y: auto;
+}
+
+.sidebar__overlay--hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
 */ 
@@ -204,4 +236,19 @@ For You Page Styles
     font-size: 14px;
     font-weight: 500;
     color: #032b41;
+}
+
+/* First Three Books Styles */
+
+.for-you__title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #032b41;
+    margin-bottom: 16px;
+}
+
+.for-you__sub--title {
+    font-weight: 300;
+    color: #394547;
+    margin-bottom: 16px;
 }
