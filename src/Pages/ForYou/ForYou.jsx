@@ -260,7 +260,7 @@ const ForYou = () => {
                 </div>
                 <div className="for-you__recommended--books">
                   <div className="books__grid">
-                    {books.map((book) => (
+                    {books.slice(0,5).map((book) => (
                       <Book key={book.id} book={book} />
                     ))}
                   </div>

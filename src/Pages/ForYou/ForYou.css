@@ -128,7 +128,7 @@
 
 */ 
 
-For You Page Styles 
+For You Book Styles 
 
 */
 
@@ -238,7 +238,7 @@ For You Page Styles
     color: #032b41;
 }
 
-/* First Three Books Styles */
+/* Recommendedd Books Styles */
 
 .for-you__title {
     font-size: 22px;
@@ -257,19 +257,22 @@ For You Page Styles
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 24px;
+  width: 100%;
 }
 
-.book img {
+.book img {  
   width: 100%;
-  height: 220px;
+  height: 100%;
   object-fit: cover;
 }
 
 .book {
   width: 100%;
+  min-width: 0;
 }
 
 .book img {
+  display: block;  
   width: 100%;
   height: 240px;
   object-fit: cover;
@@ -278,6 +281,7 @@ For You Page Styles
 
 .book h2 {
   font-size: 16px;
+  line-height: 1.3;
   color: #032b41;
   margin-top: 12px;
   margin-bottom: 6px;
@@ -285,5 +289,34 @@ For You Page Styles
 
 .book p {
   font-size: 14px;
+  line-height: 1.4;
   color: #6b757b;
 }
+
+.book__rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #6b757b;
+}
+
+.book__subtitle {
+  font-size: 14px;
+  color: #394547;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.book__premium {
+  width: fit-content;
+  margin-left: auto;
+  margin-bottom: 8px;
+  background-color: #032b41;
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+
