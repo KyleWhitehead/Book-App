@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Book from "../Book/Book";
 const ForYou = () => {
   const [books, setbooks] = useState([]);
+  const [suggestedBooks, setSuggestedBooks] = useState([]);
 
   useEffect(() => {
     fetch(
@@ -17,6 +18,19 @@ const ForYou = () => {
       })
       .catch((error) => {
         console.error("Error fetching books:", error);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch(
+      "https://us-central1-summaristt.cloudfunctions.net/getBooks?status=suggested"
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setSuggestedBooks(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching suggested books:", error);
       });
   }, []);
 
@@ -269,7 +283,13 @@ const ForYou = () => {
               <div>
                 <div className="for-you__title">Suggested Books</div>
                 <div className="for-you__sub--title">Browse those books</div>
-                <div></div>
+                <div className="for-you__recommended--books">
+                  <div className="books__grid">
+                     {suggestedBooks.slice(0,5).map((book) => (
+                      <Book key={book.id} book={book} />
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
