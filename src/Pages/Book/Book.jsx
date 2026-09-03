@@ -3,7 +3,7 @@ import { faClock, faStar } from "@fortawesome/free-solid-svg-icons";
 
 const Book = ({ book }) => {
   return (
-    <div className="book">
+    <a href={`/book/${book.id}`} className="book">
       {book.subscriptionRequired && (
         <div className="book__premium">Premium</div>
       )}
@@ -33,7 +33,7 @@ const Book = ({ book }) => {
           </div>
         </div>
       </div>
-    </div>
+    </a>
   );
 };
 
