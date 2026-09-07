@@ -6,6 +6,7 @@ import Library from './Pages/Library/Library';
 import Player from './Pages/Player/Player';
 import Settings from './Pages/Settings/Settings';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import BookPage from './Pages/BookPage/BookPage.jsx';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/book/" element={<Book />} />
+          <Route path="/book/:id" element={<BookPage />} />
           <Route path="/choose-plan" element={<ChoosePlan />} />
           <Route path="/for-you" element={<ForYou />} />
           <Route path="/library" element={<Library />} />
