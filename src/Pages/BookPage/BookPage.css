@@ -271,7 +271,7 @@ a {
 .inner-book__tag {
     background-color: #f1f6f4;
     padding: 0 16px;
-    height: 48px;
+    height: 40px;
     display: flex;
     align-items: center;
     cursor: not-allowed;
