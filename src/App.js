@@ -18,7 +18,7 @@ function App() {
           <Route path="/choose-plan" element={<ChoosePlan />} />
           <Route path="/for-you" element={<ForYou />} />
           <Route path="/library" element={<Library />} />
-          <Route path="/player" element={<Player />} />
+          <Route path="/player/:id" element={<Player />} />
           <Route path="/settings" element={<Settings />} />
         </Routes>
       </div>

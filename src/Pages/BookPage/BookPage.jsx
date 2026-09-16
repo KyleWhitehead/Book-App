@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -23,6 +23,7 @@ import "./BookPage.css";
 
 const BookPage = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [book, setBook] = useState(null);
 
   useEffect(() => {
@@ -136,7 +137,11 @@ const BookPage = () => {
 
                   {/* READ / LISTEN BUTTONS */}
                   <div className="inner-book__read--btn-wrapper">
-                    <button className="inner-book__read--btn">
+                    <button
+                      type="button"
+                      className="inner-book__read--btn"
+                      onClick={() => navigate(`/player/${id}`)}
+                    >
                       <div className="inner-book__read--icon">
                         <FontAwesomeIcon icon={faBookOpen} />
                       </div>
@@ -144,7 +149,11 @@ const BookPage = () => {
                       <div className="inner-book__read--text">Read</div>
                     </button>
 
-                    <button className="inner-book__read--btn">
+                    <button
+                      type="button"
+                      className="inner-book__read--btn"
+                      onClick={() => navigate(`/player/${id}`)}
+                    >
                       <div className="inner-book__read--icon">
                         <FontAwesomeIcon icon={faMicrophone} />
                       </div>
