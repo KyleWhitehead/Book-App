@@ -261,7 +261,7 @@ const ForYou = () => {
                         </svg>
                       </div>
                       <div className="selected__book--duration">
-                        3 min 23 secs
+                        
                       </div>
                     </div>
                   </div>
