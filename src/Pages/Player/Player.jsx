@@ -1,12 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import "./Player.css";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faMagnifyingGlass, faHome, faBook, faPen, faSearch, faGear, faQuestionCircle, faSignIn} from "@fortawesome/free-solid-svg-icons";
+import {faMagnifyingGlass, faHome, faBook, faPen, faSearch, faGear, faQuestionCircle, faSignIn, faFont, faPlay, faRotateLeft, faRotateRight} from "@fortawesome/free-solid-svg-icons";
+import logo from "../../assets/logo.png";
 
 const Player = () => {
   const { id } = useParams();
   const [book, setBook] = useState(null);
+  const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -26,6 +29,15 @@ const Player = () => {
 
   if (!book) {
     return <div>Loading...</div>;
+  }
+  const togglePlayPause = () => {
+       if (isPlaying) {
+        audioRef.current.pause();
+       } else {
+        audioRef.current.play();
+       }
+       setIsPlaying (!isPlaying);
+
   }
   return (
     <div  className="id">
@@ -49,7 +61,7 @@ const Player = () => {
        <div className="sidebar__overlay sidebar__overlay--hidden"></div>
        <div className="sidebar sidebar--closed">
         <div className="sidebar__logo">
-          <img src="path/to/logo.png" alt="Logo" />
+          <img src={logo} alt="Logo" />
         </div>
         <div className="sidebar__wrapper">
           <div className="sidebar__top">
@@ -94,10 +106,18 @@ const Player = () => {
             </div>
 
             <div className="sidebar__link--wrapper sidebar__font--size-wrapper">
-              <div className="sidebar__link--text sidebar__font--size-icon"></div>
-              <div className="sidebar__link--text sidebar__font--size-icon"></div>
-              <div className="sidebar__link--text sidebar__font--size-icon"></div>
-              <div className="sidebar__link--text sidebar__font--size-icon"></div>
+              <div className="sidebar__link--text sidebar__font--size-icon sidebar__font--size-icon--active">
+                <FontAwesomeIcon icon={faFont} size="sm" />
+              </div>
+              <div className="sidebar__link--text sidebar__font--size-icon">
+                <FontAwesomeIcon icon={faFont} />
+              </div>
+              <div className="sidebar__link--text sidebar__font--size-icon">
+                <FontAwesomeIcon icon={faFont} size="lg" />
+              </div>
+              <div className="sidebar__link--text sidebar__font--size-icon">
+                <FontAwesomeIcon icon={faFont} size="xl" />
+              </div>
             </div>
           </div>
           <div className="sidebar__bottom">
@@ -133,7 +153,36 @@ const Player = () => {
           </div>
         </div>
        </div>
-       <div className="summary"></div>
+       <div className="summary">
+        <div className="audio__book--summary">
+          <div className="audio__book--summary-title"><b>{book.title}</b></div>
+          <div className="audio__book--summary-text">{book.summary}</div>
+        </div>
+        <div className="audio__wrapper">
+          <audio ref={audioRef} src={book.audioLink}></audio>
+          <div className="audio__track--wrapper">
+            <figure className="audio__track--image-mask">
+              <figure className="book__image--wrapper"><img className="book__image" src={book.imageLink} alt={book.title}></img></figure>
+            </figure>
+            <div className="audio__track--details-wrapper">
+              <div className="audio__track--title">{book.title}</div>
+              <div className="audio__track--author">{book.author}</div>
+            </div>
+          </div>
+          <div className="audio__controls--wrapper">
+            <div className="audio__controls">
+              <button className="audio__controls--btn"><FontAwesomeIcon icon={faRotateLeft} />10</button>
+              <button onClick={togglePlayPause} className="audio__controls--btn audio__controls--btn-play"><FontAwesomeIcon icon={faPlay} />{isPlaying ? 'Pause' : 'Play'}</button>
+              <button className="audio__controls--btn"><FontAwesomeIcon icon={faRotateRight} />10</button>
+            </div>
+          </div>
+          <div className="audio__progress--wrapper">
+            <div className="audio__time">0:00</div>
+            <input type="range" className="audio__progress--bar"/>
+            <div className="audio__time">{}</div>
+          </div>
+        </div>
+       </div>
       </div>
     </div>
   );
