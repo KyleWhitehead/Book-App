@@ -106,6 +106,8 @@
 .audio__controls--btn {
     border-radius: 50%;
     cursor: pointer;
+    background-color: #032b41;
+    color:#fff
 }
 
 .audio__controls--btn-play
@@ -113,6 +115,7 @@
     background-color: #fff;
     width: 40px;
     height: 40px;
+    color: black;
 }
 
 .audio__progress--wrapper {

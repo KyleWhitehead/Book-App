@@ -1,8 +1,21 @@
 import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import "./Player.css";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faMagnifyingGlass, faHome, faBook, faPen, faSearch, faGear, faQuestionCircle, faSignIn, faFont, faPlay, faRotateLeft, faRotateRight} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faMagnifyingGlass,
+  faHome,
+  faBook,
+  faPen,
+  faSearch,
+  faGear,
+  faQuestionCircle,
+  faSignIn,
+  faFont,
+  faPlay,
+  faRotateLeft,
+  faRotateRight,
+} from "@fortawesome/free-solid-svg-icons";
 import logo from "../../assets/logo.png";
 
 const Player = () => {
@@ -10,8 +23,8 @@ const Player = () => {
   const [book, setBook] = useState(null);
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0)
-  const [duration, setDuration] = useState(0)
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -33,31 +46,31 @@ const Player = () => {
     return <div>Loading...</div>;
   }
   const togglePlayPause = () => {
-       if (isPlaying) {
-        audioRef.current.pause();
-       } else {
-        audioRef.current.play();
-       }
-       setIsPlaying (!isPlaying);
-  }
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
 
   const skipBackword = () => {
-       const newTime = Math.max(currentTime - 10, 0);
-       setCurrentTime(newTime);
-       audioRef.current.currentTime = newTime;
+    const newTime = Math.max(currentTime - 10, 0);
+    setCurrentTime(newTime);
+    audioRef.current.currentTime = newTime;
   };
 
   const skipForward = () => {
-    const  newTime = Math.min(currentTime + 10, duration);
+    const newTime = Math.min(currentTime + 10, duration);
     setCurrentTime(newTime);
-    audioRef.current.currentTime = newTime
+    audioRef.current.currentTime = newTime;
   };
 
   const handleLoadedMetadata = () => {
     if (audioRef.current) {
-      setDuration(audioRef.current.duration)
+      setDuration(audioRef.current.duration);
     }
-  }  
+  };
 
   const formatTime = (timeInSeconds) => {
     if (!Number.isFinite(timeInSeconds) || timeInSeconds < 0) {
@@ -71,154 +84,189 @@ const Player = () => {
   };
 
   return (
-    <div  className="id">
+    <div className="id">
       <div className="wrapper">
-       <div className="search__background">
-        <div className="search__wrapper">
-          <figure></figure>
-          <div className="search__content">
-            <div className="search">
-              <div className="search__input--wrapper">
-                <input className="search__input" placeholder="Search for books" type="text" />
-                <div className="search__icon">
-                  <FontAwesomeIcon icon={faMagnifyingGlass} />
+        <div className="search__background">
+          <div className="search__wrapper">
+            <figure></figure>
+            <div className="search__content">
+              <div className="search">
+                <div className="search__input--wrapper">
+                  <input
+                    className="search__input"
+                    placeholder="Search for books"
+                    type="text"
+                  />
+                  <div className="search__icon">
+                    <FontAwesomeIcon icon={faMagnifyingGlass} />
+                  </div>
+                </div>
+              </div>
+              <div className="sidebar__toggle--btn"></div>
+            </div>
+          </div>
+        </div>
+        <div className="sidebar__overlay sidebar__overlay--hidden"></div>
+        <div className="sidebar sidebar--closed">
+          <div className="sidebar__logo">
+            <img src={logo} alt="Logo" />
+          </div>
+          <div className="sidebar__wrapper">
+            <div className="sidebar__top">
+              <a className="sidebar__link--wrapper" href="/for-you">
+                <div className="sidebar__link--line"></div>
+
+                <div className="sidebar__icon--wrapper">
+                  <FontAwesomeIcon icon={faHome} />
+                </div>
+
+                <div className="sidebar__link--text">For You</div>
+              </a>
+
+              <a className="sidebar__link--wrapper" href="/library">
+                <div className="sidebar__link--line"></div>
+
+                <div className="sidebar__icon--wrapper">
+                  <FontAwesomeIcon icon={faBook} />
+                </div>
+
+                <div className="sidebar__link--text">Library</div>
+              </a>
+
+              <div className="sidebar__link--wrapper sidebar__link--not-allowed">
+                <div className="sidebar__link--line"></div>
+
+                <div className="sidebar__icon--wrapper">
+                  <FontAwesomeIcon icon={faPen} />
+                </div>
+
+                <div className="sidebar__link--text">Highlights</div>
+              </div>
+
+              <div className="sidebar__link--wrapper sidebar__link--not-allowed">
+                <div className="sidebar__link--line"></div>
+
+                <div className="sidebar__icon--wrapper">
+                  <FontAwesomeIcon icon={faSearch} />
+                </div>
+
+                <div className="sidebar__link--text">Search</div>
+              </div>
+
+              <div className="sidebar__link--wrapper sidebar__font--size-wrapper">
+                <div className="sidebar__link--text sidebar__font--size-icon sidebar__font--size-icon--active">
+                  <FontAwesomeIcon icon={faFont} size="sm" />
+                </div>
+                <div className="sidebar__link--text sidebar__font--size-icon">
+                  <FontAwesomeIcon icon={faFont} />
+                </div>
+                <div className="sidebar__link--text sidebar__font--size-icon">
+                  <FontAwesomeIcon icon={faFont} size="lg" />
+                </div>
+                <div className="sidebar__link--text sidebar__font--size-icon">
+                  <FontAwesomeIcon icon={faFont} size="xl" />
                 </div>
               </div>
             </div>
-            <div className="sidebar__toggle--btn"></div>
-          </div>
-        </div>
-       </div>
-       <div className="sidebar__overlay sidebar__overlay--hidden"></div>
-       <div className="sidebar sidebar--closed">
-        <div className="sidebar__logo">
-          <img src={logo} alt="Logo" />
-        </div>
-        <div className="sidebar__wrapper">
-          <div className="sidebar__top">
-            <a className="sidebar__link--wrapper" href="/for-you">
-              <div className="sidebar__link--line"></div>
+            <div className="sidebar__bottom">
+              <a className="sidebar__link--wrapper" href="/settings">
+                <div className="sidebar__link--line"></div>
 
-              <div className="sidebar__icon--wrapper">
-                <FontAwesomeIcon icon={faHome} />
+                <div className="sidebar__icon--wrapper">
+                  <FontAwesomeIcon icon={faGear} />
+                </div>
+
+                <div className="sidebar__link--text">Settings</div>
+              </a>
+
+              <div className="sidebar__link--wrapper sidebar__link--not-allowed">
+                <div className="sidebar__link--line"></div>
+
+                <div className="sidebar__icon--wrapper">
+                  <FontAwesomeIcon icon={faQuestionCircle} />
+                </div>
+
+                <div className="sidebar__link--text">Help & Support</div>
               </div>
 
-              <div className="sidebar__link--text">For You</div>
-            </a>
+              <div className="sidebar__link--wrapper">
+                <div className="sidebar__link--line"></div>
 
-            <a className="sidebar__link--wrapper" href="/library">
-              <div className="sidebar__link--line"></div>
+                <div className="sidebar__icon--wrapper">
+                  <FontAwesomeIcon icon={faSignIn} />
+                </div>
 
-              <div className="sidebar__icon--wrapper">
-                <FontAwesomeIcon icon={faBook} />
+                <div className="sidebar__link--text">Login</div>
               </div>
-
-              <div className="sidebar__link--text">Library</div>
-            </a>
-
-            <div className="sidebar__link--wrapper sidebar__link--not-allowed">
-              <div className="sidebar__link--line"></div>
-
-              <div className="sidebar__icon--wrapper">
-                <FontAwesomeIcon icon={faPen} />
-              </div>
-
-              <div className="sidebar__link--text">Highlights</div>
-            </div>
-
-            <div className="sidebar__link--wrapper sidebar__link--not-allowed">
-              <div className="sidebar__link--line"></div>
-
-              <div className="sidebar__icon--wrapper">
-                <FontAwesomeIcon icon={faSearch} />
-              </div>
-
-              <div className="sidebar__link--text">Search</div>
-            </div>
-
-            <div className="sidebar__link--wrapper sidebar__font--size-wrapper">
-              <div className="sidebar__link--text sidebar__font--size-icon sidebar__font--size-icon--active">
-                <FontAwesomeIcon icon={faFont} size="sm" />
-              </div>
-              <div className="sidebar__link--text sidebar__font--size-icon">
-                <FontAwesomeIcon icon={faFont} />
-              </div>
-              <div className="sidebar__link--text sidebar__font--size-icon">
-                <FontAwesomeIcon icon={faFont} size="lg" />
-              </div>
-              <div className="sidebar__link--text sidebar__font--size-icon">
-                <FontAwesomeIcon icon={faFont} size="xl" />
-              </div>
-            </div>
-          </div>
-          <div className="sidebar__bottom">
-            <a className="sidebar__link--wrapper" href="/settings">
-              <div className="sidebar__link--line"></div>
-
-              <div className="sidebar__icon--wrapper">
-                <FontAwesomeIcon icon={faGear} />
-              </div>
-
-              <div className="sidebar__link--text">Settings</div>
-            </a>
-
-            <div className="sidebar__link--wrapper sidebar__link--not-allowed">
-              <div className="sidebar__link--line"></div>
-
-              <div className="sidebar__icon--wrapper">
-                <FontAwesomeIcon icon={faQuestionCircle} />
-              </div>
-
-              <div className="sidebar__link--text">Help & Support</div>
-            </div>
-
-            <div className="sidebar__link--wrapper">
-              <div className="sidebar__link--line"></div>
-
-              <div className="sidebar__icon--wrapper">
-                <FontAwesomeIcon icon={faSignIn} />
-              </div>
-
-              <div className="sidebar__link--text">Login</div>
             </div>
           </div>
         </div>
-       </div>
-       <div className="summary">
-        <div className="audio__book--summary">
-          <div className="audio__book--summary-title"><b>{book.title}</b></div>
-          <div className="audio__book--summary-text">{book.summary}</div>
-        </div>
-        <div className="audio__wrapper">
-          <audio
-            ref={audioRef}
-            src={book.audioLink}
-            onLoadedMetadata={handleLoadedMetadata}
-            onTimeUpdate={(event) => setCurrentTime(event.target.currentTime)}
-          ></audio>
-          <div className="audio__track--wrapper">
-            <figure className="audio__track--image-mask">
-              <figure className="book__image--wrapper"><img className="book__image" src={book.imageLink} alt={book.title}></img></figure>
-            </figure>
-            <div className="audio__track--details-wrapper">
-              <div className="audio__track--title">{book.title}</div>
-              <div className="audio__track--author">{book.author}</div>
+        <div className="summary">
+          <div className="audio__book--summary">
+            <div className="audio__book--summary-title">
+              <b>{book.title}</b>
+            </div>
+            <div className="audio__book--summary-text">{book.summary}</div>
+          </div>
+          <div className="audio__wrapper">
+            <audio
+              ref={audioRef}
+              src={book.audioLink}
+              onLoadedMetadata={handleLoadedMetadata}
+              onTimeUpdate={(event) => setCurrentTime(event.target.currentTime)}
+            ></audio>
+            <div className="audio__track--wrapper">
+              <figure className="audio__track--image-mask">
+                <figure className="book__image--wrapper">
+                  <img
+                    className="book__image"
+                    src={book.imageLink}
+                    alt={book.title}
+                  ></img>
+                </figure>
+              </figure>
+              <div className="audio__track--details-wrapper">
+                <div className="audio__track--title">{book.title}</div>
+                <div className="audio__track--author">{book.author}</div>
+              </div>
+            </div>
+            <div className="audio__controls--wrapper">
+              <div className="audio__controls">
+                <button onClick={skipBackword} className="audio__controls--btn">
+                  <FontAwesomeIcon icon={faRotateLeft} />
+                  10
+                </button>
+                <button
+                  onClick={togglePlayPause}
+                  className="audio__controls--btn audio__controls--btn-play"
+                >
+                  <FontAwesomeIcon icon={faPlay} />
+                  {isPlaying ? "Pause" : "Play"}
+                </button>
+                <button onClick={skipForward} className="audio__controls--btn">
+                  <FontAwesomeIcon icon={faRotateRight} />
+                  10
+                </button>
+              </div>
+            </div>
+            <div className="audio__progress--wrapper">
+              <div className="audio__time">{formatTime(currentTime)}</div>
+              <input
+                type="range"
+                className="audio__progress--bar"
+                min="0"
+                max={duration}
+                value={currentTime}
+                onChange={(event) => {
+                  const newTime = Number(event.target.value);
+                  setCurrentTime(newTime);
+                  audioRef.current.currentTime = newTime;
+                }}
+              />
+              <div className="audio__time">{formatTime(duration)}</div>
             </div>
           </div>
-          <div className="audio__controls--wrapper">
-            <div className="audio__controls">
-              <button onClick={skipBackword} className="audio__controls--btn"><FontAwesomeIcon icon={faRotateLeft} />10</button>
-              <button onClick={togglePlayPause} className="audio__controls--btn audio__controls--btn-play"><FontAwesomeIcon icon={faPlay} />{isPlaying ? 'Pause' : 'Play'}</button>
-              <button onClick={skipForward} className="audio__controls--btn"><FontAwesomeIcon icon={faRotateRight} />10</button>
-            </div>
-          </div>
-          <div className="audio__progress--wrapper">
-            <div className="audio__time">{formatTime(currentTime)}</div>
-            <input type="range" className="audio__progress--bar"/>
-            <div className="audio__time">{formatTime(duration)}</div>
-          </div>
         </div>
-       </div>
       </div>
     </div>
   );
