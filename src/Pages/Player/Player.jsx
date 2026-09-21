@@ -25,6 +25,7 @@ const Player = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [fontSize, setFontSize] = useState("small");
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -154,16 +155,28 @@ const Player = () => {
               </div>
 
               <div className="sidebar__link--wrapper sidebar__font--size-wrapper">
-                <div className="sidebar__link--text sidebar__font--size-icon sidebar__font--size-icon--active">
+                <div className={`sidebar__link--text sidebar__font--size-icon ${
+                        fontSize === "small" ? "sidebar__font--size-icon--active" : ""}`}
+                        onClick={() => setFontSize("small")}
+                        >
                   <FontAwesomeIcon icon={faFont} size="sm" />
                 </div>
-                <div className="sidebar__link--text sidebar__font--size-icon">
+                <div className={`sidebar__link--text sidebar__font--size-icon ${
+                        fontSize === "medium" ? "sidebar__font--size-icon--active" : ""}`}
+                        onClick={()=> setFontSize("medium")}
+                >
                   <FontAwesomeIcon icon={faFont} />
                 </div>
-                <div className="sidebar__link--text sidebar__font--size-icon">
+                <div className={`sidebar__link--text sidebar__font--size-icon ${
+                      fontSize === "large" ? "sidebar__font--size-icon--active" : ""
+                }`}   onClick={() => setFontSize("large")}
+                >
                   <FontAwesomeIcon icon={faFont} size="lg" />
                 </div>
-                <div className="sidebar__link--text sidebar__font--size-icon">
+                <div className={`sidebar__link--text sidebar__font--size-icon ${
+                      fontSize === "extra-large" ? "sidebar__font--size-icon--active" : ""}`}
+                      onClick={() => setFontSize("extra-large")}
+                >
                   <FontAwesomeIcon icon={faFont} size="xl" />
                 </div>
               </div>
@@ -206,7 +219,7 @@ const Player = () => {
             <div className="audio__book--summary-title">
               <b>{book.title}</b>
             </div>
-            <div className="audio__book--summary-text">{book.summary}</div>
+            <div className={`audio__book--summary-text audio__book--summary-text--${fontSize}`}>{book.summary}</div>
           </div>
           <div className="audio__wrapper">
             <audio

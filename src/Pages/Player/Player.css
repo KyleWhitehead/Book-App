@@ -136,6 +136,25 @@
     width: 100;
     cursor: pointer;
     outline: none;
-    
+}
+
+.audio__book--summary-text--small {
+  font-size: 14px;
+}
+
+.audio__book--summary-text--medium {
+  font-size: 16px;
+}
+
+.audio__book--summary-text--large {
+  font-size: 18px;
+}
+
+.audio__book--summary-text--extra-large {
+  font-size: 20px;
+}
+
+.sidebar__font--size-icon--active {
+    border-bottom: 3px solid #2bd97c;
 }
 
