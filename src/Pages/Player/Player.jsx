@@ -10,6 +10,8 @@ const Player = () => {
   const [book, setBook] = useState(null);
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0)
+  const [duration, setDuration] = useState(0)
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -37,8 +39,37 @@ const Player = () => {
         audioRef.current.play();
        }
        setIsPlaying (!isPlaying);
-
   }
+
+  const skipBackword = () => {
+       const newTime = Math.max(currentTime - 10, 0);
+       setCurrentTime(newTime);
+       audioRef.current.currentTime = newTime;
+  };
+
+  const skipForward = () => {
+    const  newTime = Math.min(currentTime + 10, duration);
+    setCurrentTime(newTime);
+    audioRef.current.currentTime = newTime
+  };
+
+  const handleLoadedMetadata = () => {
+    if (audioRef.current) {
+      setDuration(audioRef.current.duration)
+    }
+  }  
+
+  const formatTime = (timeInSeconds) => {
+    if (!Number.isFinite(timeInSeconds) || timeInSeconds < 0) {
+      return "0:00";
+    }
+
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = Math.floor(timeInSeconds % 60);
+
+    return `${minutes}:${String(seconds).padStart(2, "0")}`;
+  };
+
   return (
     <div  className="id">
       <div className="wrapper">
@@ -159,7 +190,12 @@ const Player = () => {
           <div className="audio__book--summary-text">{book.summary}</div>
         </div>
         <div className="audio__wrapper">
-          <audio ref={audioRef} src={book.audioLink}></audio>
+          <audio
+            ref={audioRef}
+            src={book.audioLink}
+            onLoadedMetadata={handleLoadedMetadata}
+            onTimeUpdate={(event) => setCurrentTime(event.target.currentTime)}
+          ></audio>
           <div className="audio__track--wrapper">
             <figure className="audio__track--image-mask">
               <figure className="book__image--wrapper"><img className="book__image" src={book.imageLink} alt={book.title}></img></figure>
@@ -171,15 +207,15 @@ const Player = () => {
           </div>
           <div className="audio__controls--wrapper">
             <div className="audio__controls">
-              <button className="audio__controls--btn"><FontAwesomeIcon icon={faRotateLeft} />10</button>
+              <button onClick={skipBackword} className="audio__controls--btn"><FontAwesomeIcon icon={faRotateLeft} />10</button>
               <button onClick={togglePlayPause} className="audio__controls--btn audio__controls--btn-play"><FontAwesomeIcon icon={faPlay} />{isPlaying ? 'Pause' : 'Play'}</button>
-              <button className="audio__controls--btn"><FontAwesomeIcon icon={faRotateRight} />10</button>
+              <button onClick={skipForward} className="audio__controls--btn"><FontAwesomeIcon icon={faRotateRight} />10</button>
             </div>
           </div>
           <div className="audio__progress--wrapper">
-            <div className="audio__time">0:00</div>
+            <div className="audio__time">{formatTime(currentTime)}</div>
             <input type="range" className="audio__progress--bar"/>
-            <div className="audio__time">{}</div>
+            <div className="audio__time">{formatTime(duration)}</div>
           </div>
         </div>
        </div>
