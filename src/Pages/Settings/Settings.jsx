@@ -1,7 +1,8 @@
 import React from "react";
 import "./Settings.css";
 import logo from "../../assets/logo.png";
-import { faSearch, faHome, faBook, faPencil, } from "@fortawesome/free-solid-svg-icons";
+import login from "../../assets/login.png";
+import { faSearch, faHome, faBook, faPencil, faGear, faQuestionCircle, faSignIn } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
@@ -53,6 +54,7 @@ const Settings = () => {
                   <FontAwesomeIcon icon={faPencil} />
                 </div>
                 <div className="sidebar__link--text">Highlights</div>
+              </div>
                 <div className="sidebar__link--wrapper sidebar__link--not-allowed">
                   <div className="sidebar__link--line"></div>
                   <div className="sidebar__icon--wrapper">
@@ -60,12 +62,40 @@ const Settings = () => {
                   </div>
                   <div className="sidebar__link--text">Search</div>
                 </div>
+            </div>
+            <div className="sidebar__bottom">
+              <a className="sidebar__link--wrapper" href="/settings">
+              <div className="sidebar__link--line active--tab"></div>
+              <div className="sidebar__icon--wrapper">
+                <FontAwesomeIcon icon={faGear} />
+              </div>
+              <div className="sidebar__link--text">Settings</div>
+              </a>
+              <div className="sidebar__link--wrapper sidebar__link--not-allowed">
+                <div className="sidebar__link--line"></div>
+                <div className="sidebar__icon--wrapper">
+                  <FontAwesomeIcon icon={faQuestionCircle} />
+                </div>
+                <div className="sidebar__link--text">Help & Support</div>
+              </div>
+              <div className="sidebar__link--wrapper">
+                <div className="sidebar__link--line"></div>
+                <div className="sidebar__icon--wrapper">
+                  <FontAwesomeIcon icon={faSignIn} />
+                </div>
+                <div className="sidebar__link--text">Login</div>
               </div>
             </div>
-            <div className="sidebar__bottom"></div>
           </div>
         </div>
-        <div className="container"></div>
+        <div className="container">
+          <div className="row">
+            <div className="section__title page__title">Settings</div>
+            <div className="settings__login--wrapper">
+              <img src={login} alt="Login" />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
