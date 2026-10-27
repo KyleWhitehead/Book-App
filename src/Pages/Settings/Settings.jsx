@@ -93,6 +93,8 @@ const Settings = () => {
             <div className="section__title page__title">Settings</div>
             <div className="settings__login--wrapper">
               <img src={login} alt="Login" />
+              <div className="settings__login--text">Login to see your account details.</div>
+              <button className="btn settings__login--btn">Login</button>
             </div>
           </div>
         </div>
