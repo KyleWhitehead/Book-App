@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Settings.css";
+import Auth from "../../components/Auth/Auth.jsx";
 import logo from "../../assets/logo.png";
 import login from "../../assets/login.png";
 import { faSearch, faHome, faBook, faPencil, faGear, faQuestionCircle, faSignIn } from "@fortawesome/free-solid-svg-icons";
@@ -7,6 +8,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 const Settings = () => {
+  const [isAuthOpen, setIsAuthOpen] = useState(false);
+  const [demoAccount, setDemoAccount] = useState(null);
+
   return (
 
     <div className="id">
@@ -93,12 +97,47 @@ const Settings = () => {
             <div className="section__title page__title">Settings</div>
             <div className="settings__login--wrapper">
               <img src={login} alt="Login" />
+              {!demoAccount ? (
+                <>
+                <div className="settings__login--text">
+                  Login to see your account details.
+                </div>
+                <button className="btn settings__login--btn"
+                        onClick={() => setIsAuthOpen(true)}
+                >
+                  Login
+                </button>
+                </>
+              ) : (
+                   <div className="settings__account">
+                    <h2>Demo Account</h2>
+                    <p>
+                      <strong>Email:</strong> {demoAccount.email}
+                    </p>
+                    <p>
+                      <strong>Subscription Plan:</strong> {demoAccount.plan}
+                    </p>
+                    <p><small>This is a demo account-not real data</small></p>
+                     <button className="btn settings__login--btn"
+                             onClick={() => setDemoAccount(null)}
+                     >
+                       Sign out of Demo Account
+                     </button>
+
+                   </div>
+              )
+                }
               <div className="settings__login--text">Login to see your account details.</div>
-              <button className="btn settings__login--btn">Login</button>
+              <button className="btn settings__login--btn"
+                onClick={() => setIsAuthOpen(true)}
+              >
+                Login
+              </button>
             </div>
           </div>
         </div>
       </div>
+      <Auth isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} />
     </div>
   );
 };

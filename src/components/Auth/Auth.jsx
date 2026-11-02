@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Auth.css';
 
-function Auth({isOpen, onClose}) {
+function Auth({isOpen, onClose, onDemoLogin}) {
   const navigate = useNavigate();
+  const [formMessage, setFormMessage] = useState("");
+
   if (!isOpen) {
     return null;
   }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setFormMessage(
+        "Form validated. Authentication is not connected yet."
+    );
+  };
 
   return (
     <div className="auth__wrapper">
@@ -36,10 +45,22 @@ function Auth({isOpen, onClose}) {
                             <div>Login with Google</div>
                     </button>
                     <div className="auth__seperator--text">or</div>
-                    <form className="auth__main--form">
-                        <input placeholder="Email"></input>
-                        <input placeholder="Password" type="password"></input>
+                    <form className="auth__main--form" onSubmit={handleSubmit}>
+                        <input placeholder="Email" 
+                               type="email"
+                               name="email"
+                               autoComplete="email"
+                               required 
+                        />
+                        <input placeholder="Password" 
+                               type="password" 
+                               name="password"
+                               autoComplete="current-password"
+                               required 
+                        />
+                        <button type="submit">Continue</button>
                     </form>
+                    {formMessage && <div role="status">{formMessage}</div>}
             </div>
             <div className="auth__forgot--password">Forgot your password?</div>
             <button className="auth__switch--btn">Don't have an account?</button>
