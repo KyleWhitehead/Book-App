@@ -1,20 +1,33 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../firebase/firebase';
 import './Auth.css';
 
-function Auth({isOpen, onClose, onDemoLogin}) {
+function Auth({isOpen, onClose}) {
   const navigate = useNavigate();
   const [formMessage, setFormMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   if (!isOpen) {
     return null;
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    setFormMessage(
-        "Form validated. Authentication is not connected yet."
-    );
+    setIsSubmitting(true);
+    setFormMessage("");
+
+    try {
+      const { email, password } = event.currentTarget.elements;
+      await signInWithEmailAndPassword(auth, email.value, password.value);
+      onClose?.();
+      navigate('/settings');
+    } catch (error) {
+      setFormMessage(error.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -27,7 +40,7 @@ function Auth({isOpen, onClose, onDemoLogin}) {
                     className="btn guest__btn--wrapper"
                     onClick={() => {
                         onClose?.();
-                        navigate('/for-you');
+                        navigate('/settings');
                     }}
                 >
                     <figure className="guest__icon">
@@ -58,7 +71,9 @@ function Auth({isOpen, onClose, onDemoLogin}) {
                                autoComplete="current-password"
                                required 
                         />
-                        <button type="submit">Continue</button>
+                        <button type="submit" disabled={isSubmitting}>
+                            {isSubmitting ? "Signing in..." : "Continue"}
+                        </button>
                     </form>
                     {formMessage && <div role="status">{formMessage}</div>}
             </div>

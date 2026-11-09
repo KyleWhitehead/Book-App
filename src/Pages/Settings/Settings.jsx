@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Settings.css";
 import Auth from "../../components/Auth/Auth.jsx";
 import logo from "../../assets/logo.png";
 import login from "../../assets/login.png";
 import { faSearch, faHome, faBook, faPencil, faGear, faQuestionCircle, faSignIn } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../firebase/firebase";
 
 
 const Settings = () => {
   const [isAuthOpen, setIsAuthOpen] = useState(false);
+  const [user, setUser] = useState(auth.currentUser);
+
+  useEffect(() => onAuthStateChanged(auth, setUser), []);
 
   return (
 
@@ -94,17 +99,30 @@ const Settings = () => {
         <div className="container">
           <div className="row">
             <div className="section__title page__title">Settings</div>
-            <div className="settings__login--wrapper">
-              <img src={login} alt="Login" />
-              <div className="settings__login--text">
-                Login to see your account details.
+            {user ? (
+              <>
+                <div className="setting__content">
+                  <div className="settings__sub--title">Your Subscription Plan</div>
+                  <div className="settings__text">{user.subscriptionPlan || "Not subscribed"}</div>
+                </div>
+                <div className="setting__content">
+                  <div className="settings__sub--title">Email</div>
+                  <div className="settings__text">{user.email || "Not available"}</div>
+                </div>
+              </>
+            ) : (
+              <div className="settings__login--wrapper">
+                <img src={login} alt="Login" />
+                <div className="settings__login--text">
+                  Login to see your account details.
+                </div>
+                <button className="btn settings__login--btn"
+                  onClick={() => setIsAuthOpen(true)}
+                >
+                  Login
+                </button>
               </div>
-              <button className="btn settings__login--btn"
-                onClick={() => setIsAuthOpen(true)}
-              >
-                Login
-              </button>
-            </div>
+            )}
           </div>
         </div>
       </div>
