@@ -1,8 +1,6 @@
 import "./ChoosePlan.css"
 import pricing from "../../assets/pricing-top.png"
 import React from "react";
-import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
 import { fontAwesomeIcon} from "@fortawesome/fontawesome-svg-core";
 import { faFile, faSeedling, faHandshake, faChevronDown} from "@fortawesome/free-solid-svg-icons";
 

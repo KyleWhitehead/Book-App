@@ -1,4 +1,3 @@
-import Book from './Pages/Book/Book.jsx';
 import ChoosePlan from './Pages/ChoosePlan/ChoosePlan';
 import ForYou from './Pages/ForYou/ForYou';
 import Home from './Pages/Home/Home';
