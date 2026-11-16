@@ -1,7 +1,7 @@
 import "./ChoosePlan.css"
 import pricing from "../../assets/pricing-top.png"
 import React from "react";
-import { fontAwesomeIcon} from "@fortawesome/fontawesome-svg-core";
+import { fontAwesomeIcon } from "@fortawesome/fontawesome-svg-core";
 import { faFile, faSeedling, faHandshake, faChevronDown} from "@fortawesome/free-solid-svg-icons";
 
 const ChoosePlan = () => {
