@@ -1,7 +1,7 @@
 import "./ChoosePlan.css"
 import pricing from "../../assets/pricing-top.png"
 import React from "react";
-import { fontAwesomeIcon } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFile, faSeedling, faHandshake, faChevronDown} from "@fortawesome/free-solid-svg-icons";
 
 const ChoosePlan = () => {
@@ -24,7 +24,7 @@ const ChoosePlan = () => {
             <div className="plan__features--wrapper">
               <div className="plan__features">
                 <figure className="plan__features--icon">
-                  <fontAwesomeIcon icon={faFile} />
+                  <FontAwesomeIcon icon={faFile} />
                 </figure>
                 <div className="plan__features--text">
                   <br>Key ideas in a few min</br>
@@ -33,7 +33,7 @@ const ChoosePlan = () => {
               </div>
               <div className="plan__features">
                 <figure className="plan__features--icon">
-                  <fontAwesomeIcon icon={faSeedling} />
+                  <FontAwesomeIcon icon={faSeedling} />
                 </figure>
                 <div className="plan__features--text">
                   <br>3 million</br>
@@ -42,7 +42,7 @@ const ChoosePlan = () => {
               </div>
               <div className="plan__features">
                 <figure className="plan__features--icon">
-                  <fontAwesomeIcon icon={faHandshake} />
+                  <FontAwesomeIcon icon={faHandshake} />
                 </figure>
                 <div className="plan__features--text">
                   <br>Precise recommendations</br>
@@ -85,7 +85,7 @@ const ChoosePlan = () => {
                 <div className="accordian__header">
                   <div className="accordian__title">How does the 7-day trial work?</div>
                   <figure className="accordian__icon accordian__icon--rotate">
-                    <fontAwesomeIcon icon={faChevronDown} />
+                    <FontAwesomeIcon icon={faChevronDown} />
                   </figure>
                 </div>
                 <div className="collapse collapse show">
@@ -96,7 +96,7 @@ const ChoosePlan = () => {
                 <div className="accordian__header">
                   <div className="accordian__title">Can I switch subscriptions from monthly to yearly, or yearly to monthly?</div>
                   <figure className="accordian__icon">
-                    <fontAwesomeIcon icon={faChevronDown} />
+                    <FontAwesomeIcon icon={faChevronDown} />
                   </figure>
                 </div>
                 <div className="collapse">
@@ -107,7 +107,7 @@ const ChoosePlan = () => {
                 <div className="accordian__header">
                   <div className="accordian__title">What's included in the Premium plan?</div>
                   <figure className="accordian__icon">
-                    <fontAwesomeIcon icon={faChevronDown} />
+                    <FontAwesomeIcon icon={faChevronDown} />
                   </figure>
                 </div>
                 <div className="collapse">
@@ -118,7 +118,7 @@ const ChoosePlan = () => {
                 <div className="accordian__header">
                   <div className="accordian__title">Can I cancel my trial during my subscription?</div>
                   <figure className="accordian__icon">
-                    <fontAwesomeIcon icon={faChevronDown} />
+                    <FontAwesomeIcon icon={faChevronDown} />
                   </figure>
                 </div>
                 <div className="collapse">
@@ -136,16 +136,16 @@ const ChoosePlan = () => {
                   <div className="footer__link--title">Actions</div>
                   <div>
                     <div className="footer__link--wrapper">
-                      <a className="footer__link">Summarist Magazine</a>
+                      <button type="button" className="footer__link">Summarist Magazine</button>
                     </div>
                     <div className="footer__link--wrapper">
-                      <a className="footer__link">Cancel subscription</a>
+                      <button type="button" className="footer__link">Cancel subscription</button>
                     </div>
                     <div className="footer__link--wrapper">
-                      <a className="footer__link">Help</a>
+                      <button type="button" className="footer__link">Help</button>
                     </div>
                     <div className="footer__link--wrapper">
-                      <a className="footer__link">Contact Us</a>
+                      <button type="button" className="footer__link">Contact Us</button>
                     </div>
                   </div>
                 </div>
@@ -153,16 +153,16 @@ const ChoosePlan = () => {
                   <div className="footer__link--title">Useful Links</div>
                   <div>
                     <div className="footer__link--wrapper">
-                      <a className="footer__link">Pricing</a>
+                      <button type="button" className="footer__link">Pricing</button>
                     </div>
                     <div className="footer__link--wrapper">
-                      <a className="footer__link">Summarist Business</a>
+                      <button type="button" className="footer__link">Summarist Business</button>
                     </div>
                     <div className="footer__link--wrapper">
-                      <a className="footer__link">Gift Cards</a>
+                      <button type="button" className="footer__link">Gift Cards</button>
                     </div>
                     <div className="footer__link--wrapper">
-                      <a className="footer__link">Authors & Publishers</a>
+                      <button type="button" className="footer__link">Authors & Publishers</button>
                     </div>
                   </div>
                 </div>
@@ -170,32 +170,32 @@ const ChoosePlan = () => {
                   <div className="footer__link--title">Company</div>
                   <div>
                     <div className="footer__link--wrapper">
-                      <a className="footer__link">About</a>
+                      <button type="button" className="footer__link">About</button>
                     </div>
                     <div className="footer__link--wrapper">
-                      <a className="footer__link">Careers</a>
+                      <button type="button" className="footer__link">Careers</button>
                     </div>
                     <div className="footer__link--wrapper">
-                      <a className="footer__link">Partners</a>
+                      <button type="button" className="footer__link">Partners</button>
                     </div>
                     <div className="footer__link--wrapper">
-                      <a className="footer__link">Code of Conduct</a>
+                      <button type="button" className="footer__link">Code of Conduct</button>
                     </div>
                   </div>
                 </div>
                 <div className="footer__block">
                   <div className="footer__link--title">Other</div>
                   <div className="footer__link--wrapper">
-                    <a className="footer__link">Sitemap</a>
+                    <button type="button" className="footer__link">Sitemap</button>
                   </div>
                   <div className="footer__link--wrapper">
-                    <a className="footer__link">Legal Notice</a>
+                    <button type="button" className="footer__link">Legal Notice</button>
                   </div>
                   <div className="footer__link--wrapper">
-                    <a className="footer__link">Terms of Service</a>
+                    <button type="button" className="footer__link">Terms of Service</button>
                   </div>
                   <div className="footer__link--wrapper">
-                    <a className="footer__link">Privacy Policies</a>
+                    <button type="button" className="footer__link">Privacy Policies</button>
                   </div>
                 </div>
               </div>

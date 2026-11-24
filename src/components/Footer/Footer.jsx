@@ -11,62 +11,62 @@ const Footer = () => {
               <div className="footer__link--title">Actions</div>
               <div>
                 <div className="footer__link--wrapper">
-                  <a className="footer__link">Summarist Magazine</a>
+                  <button type="button" className="footer__link">Summarist Magazine</button>
                 </div>
                 <div className="footer__link--wrapper">
-                  <a className="footer__link">Cancel Subscription</a>
+                  <button type="button" className="footer__link">Cancel Subscription</button>
                 </div>
                 <div className="footer__link--wrapper">
-                  <a className="footer__link">Help</a>
+                  <button type="button" className="footer__link">Help</button>
                 </div>
                 <div className="footer__link--wrapper">
-                  <a className="footer__link">Contact us</a>
+                  <button type="button" className="footer__link">Contact us</button>
                 </div>
               </div>
             </div>
             <div className="footer__block">
               <div className="footer__link--title">Useful Links</div>
               <div className="footer__link--wrapper">
-                <a className="footer__link">Pricing</a>
+                <button type="button" className="footer__link">Pricing</button>
               </div>
               <div className="footer__link--wrapper">
-                <a className="footer__link">Summarist Business</a>
+                <button type="button" className="footer__link">Summarist Business</button>
               </div>
               <div className="footer__link--wrapper">
-                <a className="footer__link">Gift Cards</a>
+                <button type="button" className="footer__link">Gift Cards</button>
               </div>
               <div className="footer__link--wrapper">
-                <a className="footer__link">Authors & Publishers</a>
+                <button type="button" className="footer__link">Authors & Publishers</button>
               </div>
             </div>
             <div className="footer__block">
               <div className="footer__link--title">Company</div>
               <div className="footer__link--wrapper">
-                <a className="footer__link">About</a>
+                <button type="button" className="footer__link">About</button>
               </div>
               <div className="footer__link--wrapper">
-                <a className="footer__link">Careers</a>
+                <button type="button" className="footer__link">Careers</button>
               </div>
               <div className="footer__link--wrapper">
-                <a className="footer__link">Partners</a>
+                <button type="button" className="footer__link">Partners</button>
               </div>
               <div className="footer__link--wrapper">
-                <a className="footer__link">Code of Conduct</a>
+                <button type="button" className="footer__link">Code of Conduct</button>
               </div>
             </div>
             <div className="footer__block">
               <div className="footer__link--title">Other</div>
               <div className="footer__link--wrapper">
-                <a className="footer__link">Sitemap</a>
+                <button type="button" className="footer__link">Sitemap</button>
               </div>
               <div className="footer__link--wrapper">
-                <a className="footer__link">Legal Notice</a>
+                <button type="button" className="footer__link">Legal Notice</button>
               </div>
               <div className="footer__link--wrapper">
-                <a className="footer__link">Terms of Service</a>
+                <button type="button" className="footer__link">Terms of Service</button>
               </div>
               <div className="footer__link--wrapper">
-                <a className="footer__link">Privacy Policies</a>
+                <button type="button" className="footer__link">Privacy Policies</button>
               </div>
             </div>
           </div>
