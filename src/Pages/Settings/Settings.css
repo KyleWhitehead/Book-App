@@ -237,3 +237,17 @@ button {
     border: none;
     background-color: transparent;
 }
+
+.settings__upgrade {
+    background-color: #2bd97c;
+    color: #032b41;
+    width: 40%;
+    height: 40px;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color .2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 180px;
+}

@@ -104,6 +104,7 @@ const Settings = () => {
                 <div className="setting__content">
                   <div className="settings__sub--title">Your Subscription Plan</div>
                   <div className="settings__text">{user.subscriptionPlan || "Not subscribed"}</div>
+                  <button className="btn settings__upgrade">Upgrade Plan</button>
                 </div>
                 <div className="setting__content">
                   <div className="settings__sub--title">Email</div>
